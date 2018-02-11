@@ -3,6 +3,11 @@
 This project allows creating Windows Shortcuts (.lnk files) with special attributes that are otherwise not easily modifiable.
 
 
+## Building `mkshortcut.exe`
+
+Building the solution is simple - open in Visual Studio 2012+ and build it. Visual Studio will generate an executable in, either `Debug` or `Release` folder, depending on the selected build configuration.
+
+
 ## Extending Windows Shortcut Properties editor
 
 Add the following Windows Registry entries as String type:
