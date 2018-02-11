@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mkshortcut", "mkshortcut.vcproj", "{5F5E9FC6-27FF-48E7-8B4D-A90995EB5520}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mkshortcut", "mkshortcut.vcxproj", "{5F5E9FC6-27FF-48E7-8B4D-A90995EB5520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
