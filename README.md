@@ -1,15 +1,48 @@
+# Description
+
 This project allows creating Windows Shortcuts (.lnk files) with special attributes that are otherwise not easily modifiable.
 
-Usage of `mkshortcut`
-- `mkshortcut.exe -output "Shortcut Name.lnk" -target "C:\Path\to\ExecutablePortable.exe" -appid "AppID-read-below"`
+
+## Extending Windows Shortcut Properties editor
+
+Add the following Windows Registry entries as String type:
+
+```
+[HKEY_CLASSES_ROOT\lnkfile]
+"InfoTip"="prop:System.Comment;System.Link.TargetParsingPath;System.AppUserModel.ID;System.ItemFolderPathDisplay"
+"ExtendedTileInfo"="prop:System.Comment;System.Link.TargetParsingPath;System.AppUserModel.ID;System.ItemFolderPathDisplay"
+"PreviewDetails"="prop:System.Comment;System.Link.TargetParsingPath;System.AppUserModel.ID;System.ItemFolderPathDisplay"
+"PreviewTitle"="prop:System.Comment;System.Link.TargetParsingPath;System.AppUserModel.ID;System.ItemFolderPathDisplay"
+"QuickTip"="prop:System.Comment;System.Link.TargetParsingPath;System.AppUserModel.ID;System.ItemFolderPathDisplay"
+"TileInfo"="prop:System.Comment;System.Link.TargetParsingPath;System.AppUserModel.ID;System.ItemFolderPathDisplay"
+"FullDetails"="prop:System.PropGroup.Description;System.ItemTypeText;System.Comment;System.Link.TargetParsingPath;System.AppUserModel.ID;System.ItemFolderPathDisplay;prop:System.PropGroup.FileSystem;System.ItemNameDisplay;System.Size;System.DateCreated;System.DateModified;System.FileAttributes;*System.OfflineAvailability;*System.OfflineStatus;*System.SharedWith;*System.FileOwner;*System.ComputerName"
+```
+
+To revert the changes, simply delete the entries listed above.
+
+**Note: The Windows Registry is a very dangerous, scary, and risky place to fiddle around. Use at your own risk!**
+
+
+## PortableApps.com
+
+Typical usage of `mkshortcut` for PortableApps.com packages with dedicated launchers.
+
+```
+mkshortcut.exe -output "Shortcut Name.lnk" -target "C:\Path\to\ExecutablePortable.exe" -appid "AppID-read-below"
+```
 
 Sometimes the AppID is the path to the executable itself (e.g. 7-zip, Firefox Stable). Sometimes it is a different value (e.g. Firefox Developer 59.0).
 
+If the steps above to enhance Windows Shortcuts Properties were taken, then you can obtain the correct AppID as follows:
 
-To obtain the correct AppID, pin the already running executable and close the application. Shift-right click the pinned icon and click Properties. Go to the Details tab and find the value under AppUserModelID. Use that as the AppID parameter to the mkshortcut.exe application.
+1. Pin the already running executable and close the application.
+2. Shift-right click the pinned icon and click Properties.
+3. Go to the Details tab and find the value under AppUserModelID.
+4. Use that value as the AppID parameter to `mkshortcut.exe`.
 
 
-/******************************************************************************
+# License
+
 Copyright 2010 Daniel Miranda. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -31,4 +64,3 @@ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-******************************************************************************/
