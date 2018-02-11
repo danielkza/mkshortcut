@@ -1,3 +1,14 @@
+This project allows creating Windows Shortcuts (.lnk files) with special attributes that are otherwise not easily modifiable.
+
+Usage of `mkshortcut`
+- `mkshortcut.exe -output "Shortcut Name.lnk" -target "C:\Path\to\ExecutablePortable.exe" -appid "AppID-read-below"`
+
+Sometimes the AppID is the path to the executable itself (e.g. 7-zip, Firefox Stable). Sometimes it is a different value (e.g. Firefox Developer 59.0).
+
+
+To obtain the correct AppID, pin the already running executable and close the application. Shift-right click the pinned icon and click Properties. Go to the Details tab and find the value under AppUserModelID. Use that as the AppID parameter to the mkshortcut.exe application.
+
+
 /******************************************************************************
 Copyright 2010 Daniel Miranda. All rights reserved.
 
